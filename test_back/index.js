@@ -1,7 +1,9 @@
 const mysql = require("mysql2");
 const express = require("express");
+const cors = require("cors");
 
 const app = express();
+app.use(cors());
 const port = 8000;
 
 const db = mysql.createConnection({
@@ -25,7 +27,6 @@ app.listen(port, () => {
 });
 
 app.post("/posttransaction", (req, res) => {
-    console.log("Body:", req.body);
     let sql = `INSERT INTO transactions (dateTime, author, sum, category, comment) VALUES ('${req.body.date}', '${req.body.author}', '${req.body.sum}', '${req.body.category}', '${req.body.comment}')`;
     db.query(sql, (err, result) => {
         if (err) {
