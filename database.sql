@@ -1,0 +1,10 @@
+CREATE DATABASE IF NOT EXISTS test_db;
+
+CREATE TABLE test_db.transactions (
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    dateTime DATETIME NOT NULL,
+    author VARCHAR(45) NOT NULL,
+    sum INT NOT NULL,
+    category VARCHAR(45) NOT NULL,
+    comment VARCHAR(250)
+);
